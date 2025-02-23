@@ -10,7 +10,7 @@ This is a Flask-based web application for managing employee provident funds. It 
 
 ## Technologies Used
 - **Backend**: Flask (Python)
-- **Frontend**: HTML, CSS, JavaScript, Bootstrap
+- **Frontend**: HTML, CSS, JavaScript, Bootstrap, JQuery
 - **Database**: MySQL
 - **Other Tools**: Pandas (for Excel file handling)
 
