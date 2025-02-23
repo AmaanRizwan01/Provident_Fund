@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Main Content -->
+<div class="main-content">
+    <section>
+        <div class="container">
+            <div class="provident_heading">
+                <h1>Provident Fund System</h1>
+            </div>
+            <h3>Import Data</h3>
+            <h4 class="date-range code-font">Employee Personal Information File</h4>
+            <div class="row">
+                <div class="col-md-8">
+                    <form>
+                        <div class="form_main">
+                            <div class="form_input_button">
+                                <input type="text" placeholder="Browse File..." name="personalFileName" id="personalFileName" readonly>
+                                <input type="file" id="personalFileInput" style="display: none;" accept=".xlsx, .xls">
+                                <button type="button" onclick="document.getElementById('personalFileInput').click()">Employee Personal File</button>
+                            </div>
+                            <div class="form_input_button">
+                                <input type="text" placeholder="Browse File..." name="providentFileName" id="providentFileName" readonly>
+                                <input type="file" id="providentFileInput" style="display: none;" accept=".xlsx, .xls">
+                                <button type="button" onclick="document.getElementById('providentFileInput').click()">Employee Provident File</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <form>
+                        <div class="browse_button">
+                            <button type="button" id="updateButton">Update</button>
+                            <!-- <button type="button">Exit</button> -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(document).on("click", "#toggleTabs", function() {
+            $("#sidebar").toggleClass("collapsed");
+        });
+    });
+
+    // File selection
+    document.getElementById('personalFileInput').addEventListener('change', function() {
+        document.getElementById('personalFileName').value = this.files[0].name;
+    });
+
+    document.getElementById('providentFileInput').addEventListener('change', function() {
+        document.getElementById('providentFileName').value = this.files[0].name;
+    });
+
+    //File Upload
+    document.getElementById('updateButton').addEventListener('click', function() {
+        const personalFile = document.getElementById('personalFileInput').files[0];
+        const providentFile = document.getElementById('providentFileInput').files[0];
+
+        if (!personalFile && !providentFile) {
+            alert("Please select at least one file before updating.");
+            return;
+        }
+
+        if (personalFile && !providentFile) {
+            if (!confirm("You are only uploading the Employee Personal File. Do you want to proceed?")) {
+                return;
+            }
+        }
+
+        if (!personalFile && providentFile) {
+            if (!confirm("You are only uploading the Employee Provident File. Do you want to proceed?")) {
+                return;
+            }
+        }
+
+        const formData = new FormData();
+        if (personalFile) formData.append('personalFile', personalFile);
+        if (providentFile) formData.append('providentFile', providentFile);
+
+        fetch('/upload-files', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Files uploaded and data inserted successfully!");
+            } else {
+                alert("Error: " + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("An error occurred while uploading the files.");
+        });
+    });
+</script>
+{% endblock %}

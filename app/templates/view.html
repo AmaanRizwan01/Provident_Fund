@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Main Content -->
+<div class="main-content">
+    <section>
+        <div class="container">
+            <div class="provident_heading">
+                <h1>Provident Fund System</h1>
+            </div>
+            <div class="row">
+                <div class="loan_inner_tabs">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="Employee_Provident_Fund_Ledger-tab" data-bs-toggle="tab" data-bs-target="#Employee_Provident_Fund_Ledger" type="button" role="tab" aria-controls="Employee_Provident_Fund_Ledger" aria-selected="true">Employee Provident Fund Ledger</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="Loan_Summary-tab" data-bs-toggle="tab" data-bs-target="#Loan_Summary" type="button" role="tab" aria-controls="Loan_Summary" aria-selected="false">Loan Summary</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="Profit_Report-tab" data-bs-toggle="tab" data-bs-target="#Profit_Report" type="button" role="tab" aria-controls="Profit_Report" aria-selected="false">Profit Report</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="Annual_Provident_Fund_Ledger-tab" data-bs-toggle="tab" data-bs-target="#Annual_Provident_Fund_Ledger" type="button" role="tab" aria-controls="Annual_Provident_Fund_Ledger" aria-selected="false">Annual Provident Fund Ledger</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="Refund_Employee_Report-tab" data-bs-toggle="tab" data-bs-target="#Refund_Employee_Report" type="button" role="tab" aria-controls="Refund_Employee_Report" aria-selected="false">Refund Employee Report</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="Interest_Report-tab" data-bs-toggle="tab" data-bs-target="#Interest_Report" type="button" role="tab" aria-controls="Interest_Report" aria-selected="false">Interest Report</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="Employee_Provident_Fund_Ledger" role="tabpanel" aria-labelledby="Employee_Provident_Fund_Ledger-tab">
+                            <div class="col-md-12">
+                                <div class="from_to_date">
+                                    <label for="">Employee Id:</label>
+                                    <div class="emp_id">
+                                        <input class="emp_size_first" placeholder="Enter Here" type="text" id="" name="employeeID" >
+                                        <input class="emp_size_second" placeholder="Enter Here"  type="text" id="" name="">
+                                    </div>
+                                    <div class="from_to_date_input">
+                                        <label for="">From Date:</label>
+                                        <input type="date" placeholder="Enter Here" id="" name="">
+                                    </div>
+                                        <div class="from_to_date_input">
+                                        <label for="">From Date:</label>
+                                        <input type="date" placeholder="Enter Here" id="" name="" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="fund_summary">
+                                    <h4>Provident Fund Ledger Summary</h4>
+                                    <div class="print">
+                                        <h5>Opening Balance</h5>
+                                        <button type="button">Print</button>
+                                    </div>
+                                    
+                                    <div class="fund_summary_input">
+                                        <div class="fund_summary_input_div">
+                                            <label for="">Loan Balance:</label>
+                                            <input type="number" placeholder="Enter Here" id="" name="" >
+                                        </div>
+                                        <div class="fund_summary_input_div">
+                                            <label for="">Employee Sum:</label>
+                                            <input type="number" placeholder="Enter Here" id="" name="" >
+                                        </div>
+                                        <div class="fund_summary_input_div">
+                                            <label for="">University Sum:</label>
+                                            <input type="number" placeholder="Enter Here" id="" name="" >
+                                        </div>
+                                        <div class="fund_summary_input_div">
+                                            <label for="">Profit Sum:</label>
+                                            <input type="number" placeholder="Enter Here" id="" name="" >
+                                        </div>
+                                        <div class="fund_summary_input_div">
+                                            <label for="">Net Balance:</label>
+                                            <input type="number" placeholder="Enter Here" id="" name="" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="view_page_tables">
+                                        <div class="view_page_tables_one">
+                                            <div class="profit_table_div">
+                                                <table>
+                                                    <tr>
+                                                    <th>Date</th>
+                                                    <th>PF Employee</th>
+                                                    <th>PF University</th>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>03-12-24</td>
+                                                    <td>6000</td>
+                                                    <td>8000</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>03-12-24</td>
+                                                    <td>6000</td>
+                                                    <td>8000</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>03-12-24</td>
+                                                    <td>6000</td>
+                                                    <td>8000</td>
+                                                    </tr>            
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="view_page_tables_two">
+                                            <div class="profit_table_div">
+                                                <table>
+                                                    <tr>
+                                                    <th>PR Date</th>
+                                                    <th>PR Amt</th>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>03-12-24</td>
+                                                    <td>6000</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>03-12-24</td>
+                                                    <td>6000</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>03-12-24</td>
+                                                    <td>6000</td>
+                                                    </tr>
+                                                
+                                                    
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="view_page_tables_one_total">
+                                        <div class="fund_summary_input_div">
+                                            <label for="loanAmount">PF Employee:</label>
+                                            <input type="number" placeholder="" id="" name="PF_Employee" >
+                                        </div>
+                                        <div class="fund_summary_input_div">
+                                            <label for="loanAmount">PF University:</label>
+                                            <input type="number" placeholder="" id="" name="PF University">
+                                        </div>
+                                        <div class="fund_summary_input_div">
+                                            <label for="loanAmount">PR Amount:</label>
+                                            <input type="number" placeholder="" id="" name="PR Amount">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="view_cat">
+                                        <div class="view_category">
+                                            <div>
+                                                <label for="">Category:</label>
+                                                <select name="category" id="">
+                                                <option value="all">all</option>
+                                                <option value="sum">sum</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <button type="button">view</button>
+                                            </div>
+                                                
+                                        </div>
+                                        <h4>Total</h4>
+                                        <div class="total_balance">
+                                            <div class="total_balance_input">
+                                                <label for="loanAmount">Employee Sum:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="Employee_Sum">
+                                            </div>
+                                            <div class="total_balance_input">
+                                                <label for="loanAmount">SSUET Sum:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="ssuet_sum" >
+                                            </div>
+                                            <div class="total_balance_input">
+                                                <label for="loanAmount">Profit  Sum:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="profit_sum" >
+                                            </div>
+                                            <div class="total_balance_input">
+                                                <label for="loanAmount">Loan</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="Loan" >
+                                            </div>
+                                            <div class="total_balance_input">
+                                                <label for="loanAmount">Refund:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="Refund" >
+                                            </div>
+                                        </div>
+                                        <h4>Gross</h4>
+                                        <div class="total_balance">
+                                            <div class="total_balance_input">
+                                                <label for="">Loan Balance:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="loan_balance" >
+                                            </div>
+                                        </div>
+                                        <h4>Net</h4>
+                                        <div class="total_balance">
+                                            <div class="total_balance_input">
+                                                <label for="">Net Balance:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="Net_balance" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="Loan_Summary" role="tabpanel" aria-labelledby="Loan_Summary-tab">
+                            
+                        </div>
+                        <div class="tab-pane fade" id="Profit_Report" role="tabpanel" aria-labelledby="Profit_Report-tab">
+                            
+                        </div>
+                        <div class="tab-pane fade" id="Annual_Provident_Fund_Ledger" role="tabpanel" aria-labelledby="Annual_Provident_Fund_Ledger-tab">
+                            
+                        </div>
+                        <div class="tab-pane fade" id="Refund_Employee_Report" role="tabpanel" aria-labelledby="Refund_Employee_Report-tab">
+                            
+                        </div>
+                        <div class="tab-pane fade" id="Interest_Report" role="tabpanel" aria-labelledby="Interest_Report-tab">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(document).on("click", "#toggleTabs", function() {
+            $("#sidebar").toggleClass("collapsed");
+        });
+    });
+</script>
+{% endblock %}

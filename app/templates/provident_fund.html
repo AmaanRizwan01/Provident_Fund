@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Provident Fund System</title>
+</head>
+<body style="background-color:var(--theme-black)">
+    <nav>
+        <h2>Provident Fund System</h2>
+    </nav>
+    <section class="main_section">
+        <div class="container-fluid d-flex" id="mainLayout">
+            <!-- Tabs Column -->
+             <div class="button_sidebar">
+              <button id="toggleTabs" class="btn btn-warning mb-3"><i class="fa-solid fa-bars"></i></button>
+                <div id="tabsContainer" class="d-flex flex-column">
+                    <ul class="nav nav-pills flex-column" id="experienceTab" role="tablist">
+                        <li class="nav-item">
+                            <button class="nav-link active" id="field1-tab" data-bs-toggle="pill" data-bs-target="#field1" type="button" role="tab" aria-controls="field1" aria-selected="true">   
+                                <div class="side_button_icon"><i class="fa-solid fa-file-waveform"></i></div>
+                                <div><h6>Update Records</h6></div>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="field2-tab" data-bs-toggle="pill" data-bs-target="#field2" type="button" role="tab" aria-controls="field2" aria-selected="false">
+                                
+                                <div class="side_button_icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                                <div><h6>loan</h6></div>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="field3-tab" data-bs-toggle="pill" data-bs-target="#field3" type="button" role="tab" aria-controls="field3" aria-selected="false">
+                                <div class="side_button_icon"><i class="fa-solid fa-arrow-up-right-dots"></i></div>
+                                <div><h6>Profit</h6></div>
+                            </button>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="field4-tab" data-bs-toggle="pill" data-bs-target="#field4" type="button" role="tab" aria-controls="field4" aria-selected="false">
+                                <div class="side_button_icon"><i class="fa-solid fa-pen-to-square"></i></i></div>
+                                <div><h6>Edit</h6></div>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="field5-tab" data-bs-toggle="pill" data-bs-target="#field5" type="button" role="tab" aria-controls="field5" aria-selected="false">
+                                <div class="side_button_icon"><i class="fa-solid fa-eye"></i></div>
+                                <div><h6>View</h6></div>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="field6-tab" data-bs-toggle="pill" data-bs-target="#field6" type="button" role="tab" aria-controls="field6" aria-selected="false">
+                                <div class="side_button_icon"><i class="fa-solid fa-reply"></i></div>
+                                <div><h6>Refund</h6></div>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="field7-tab" data-bs-toggle="pill" data-bs-target="#field7" type="button" role="tab" aria-controls="field7" aria-selected="false">
+                                <div class="side_button_icon"><i class="fa-solid fa-scroll"></i></div>
+                                <div><h6>Pay Slip</h6></div>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="field8-tab" data-bs-toggle="pill" data-bs-target="#field8" type="button" role="tab" aria-controls="field8" aria-selected="false">
+                                <div class="side_button_icon"><i class="fa-solid fa-person"></i></div>
+                                <div><h6>User Accounts</h6></div>
+                            </button>
+                        </li>
+                    </ul>
+                    <div><button class="logout_button" type="button">Logout</button></div>
+                </div>
+            </div>
+
+            
+
+            <!-- Content Column -->
+            <div class="flex-grow-1" id="contentColumn">
+                <div class="tab-content" id="experienceTabContent">
+                    <div class="tab-pane fade show active text-left text-light" id="field1" role="tabpanel" aria-labelledby="field1-tab">
+                        <h3>Import Data</h3>
+                        <h4 class="date-range code-font">Employee Personal Information File</h4>
+                            
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <form>
+                                        <div class="form_main">
+                                            <div class="form_input_button">
+                                                <input type="text" placeholder="Browse File..." name="personalFileName" id="personalFileName" readonly>
+                                                <input type="file" id="personalFileInput" style="display: none;" accept=".xlsx, .xls">
+                                                <button type="button" onclick="document.getElementById('personalFileInput').click()">Employee Personal File</button>
+                                            </div>
+                                            <div class="form_input_button">
+                                                <input type="text" placeholder="Browse File..." name="providentFileName" id="providentFileName" readonly>
+                                                <input type="file" id="providentFileInput" style="display: none;" accept=".xlsx, .xls">
+                                                <button type="button" onclick="document.getElementById('providentFileInput').click()">Employee Provident File</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form>
+                                        <div class="browse_button">
+                                            <button type="button" id="updateButton">Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                    </div>
+
+                    <div class="tab-pane fade text-left text-light" id="field2" role="tabpanel" aria-labelledby="field2-tab">
+                        <div class="loan_addition">
+                            <button type="button">Exit</button>
+                        </div>
+                        <div class="row">
+                            <div class="loan_inner_tabs">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link active" id="Loan_Addition-tab" data-bs-toggle="tab" data-bs-target="#Loan_Addition" type="button" role="tab" aria-controls="Loan_Addition" aria-selected="true">Loan Addition</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="Loan_Recovery-tab" data-bs-toggle="tab" data-bs-target="#Loan_Recovery" type="button" role="tab" aria-controls="Loan_Recovery" aria-selected="false">Loan Recovery</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="Interest-tab" data-bs-toggle="tab" data-bs-target="#Interest" type="button" role="tab" aria-controls="Interest" aria-selected="false">Interest</button>
+                                </li>
+                              </ul>
+                              <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="Loan_Addition" role="tabpanel" aria-labelledby="Loan_Addition-tab">
+                                    <h4 class="date-range code-font">Loan Addition</h4>
+                                <div class="col-md-12">
+                                    <form action="/save-loan" method="POST">
+                                        <div class="form_main">
+                                            <div class="form_input_button">
+                                                <label for="employeeID">Employee ID:</label>
+                                                <div class="emp_id">
+                                                    <input class="emp_size_first" placeholder="Enter Here" type="text" id="" name="" >
+                                                    <input class="emp_size_second" placeholder="Enter Here"  type="text" id="" name="">
+                                                </div>
+                        
+                                                <label for="">Loan Amount:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="" required>
+                        
+                                                <label for="">Select Date:</label>
+                                                <input type="date" placeholder="Enter Here" id="" name="" required>
+                        
+                                                <label for="">Available Fund:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="">
+                        
+                                                <div class="loan_button">
+                                                    <button type="button">Add New</button>
+                                                    <button type="submit">Save</button>
+                                                </div>
+                                            </div>                                       
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
+                                <div class="tab-pane fade" id="Loan_Recovery" role="tabpanel" aria-labelledby="Loan_Recovery-tab">
+                                    <h4 class="date-range code-font">Loan Recovery</h4>
+                                <div class="col-md-12">
+                                    <form action="/recover-loan" method="POST">
+                                        <div class="form_main">
+                                            <div class="form_input_button">
+                                                <label for="employeeIDRecovery">Employee ID:</label>
+                                                <div class="emp_id">
+                                                    <input class="emp_size_first" placeholder="Enter Here" type="text" id="" name="">
+                                                    <input class="emp_size_second" placeholder="Enter Here" type="text" id="" name="">
+                                                </div>
+                        
+                                                <label for="">Recover Amount:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="" >
+                        
+                                                <label for="recoveryDate">Select Date:</label>
+                                                <input type="date" placeholder="Enter Here" id="" name="" >
+                        
+                                                <label for="">Available Fund:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="">
+                        
+                                                <div class="loan_button">
+                                                    <button type="button">Add New</button>
+                                                    <button type="submit">Recover</button>
+                                                    <button type="button">Edit Recovery</button>
+                                                    <button type="button">View</button>
+                                                </div>
+                                            </div>                                       
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
+                                <div class="tab-pane fade" id="Interest" role="tabpanel" aria-labelledby="Interest-tab">
+                                    <h4 class="date-range code-font">Interest</h4>
+                                <div class="col-md-12">
+                                    <form action="/save-interest" method="POST">
+                                        <div class="form_main">
+                                            <div class="form_input_button">
+                                                <label for="employeeIDInterest">Employee ID:</label>
+                                                <div class="emp_id">
+                                                    <input class="emp_size_first" placeholder="Enter Here" type="text" id="" name="" >
+                                                    <input class="emp_size_second" placeholder="Enter Here" type="text" id="" name="">
+                                                </div>
+                        
+                                                <label for="loanAmountInterest">Interest Amount:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="">
+                        
+                                                <label for="interestDate">Select Date:</label>
+                                                <input type="date" placeholder="Enter Here" id="" name="">
+                        
+                                                <label for="">Available Fund:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="">
+                        
+                                                <div class="loan_button">
+                                                    <button type="button">Add New</button>
+                                                    <button type="submit">Save</button>
+                                                    <button type="button">Edit Interest</button>
+                                                </div>
+                                            </div>                                       
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
+                              </div> 
+                        </div>
+                    </div>   
+                    </div>
+
+                    <div class="tab-pane fade text-left text-light" id="field3" role="tabpanel" aria-labelledby="field3-tab">
+                        <div class="loan_addition">
+                            <button type="button">Exit</button>
+                        </div>
+                        <div class="profit">
+                            <div class="row">
+                                <h4>Profit Calculation</h4>
+                                <div class="col-md-12">
+                                    <div class="profit_year">
+                                        <div class="profit_input_main_div">
+                                            <div class="profit_input_div">
+                                                <label for="availableFundInterest">Profit year:</label>
+                                                <input type="number" placeholder="Enter Here" id="availableFundInterest" name="availableFund">
+                                            </div>
+                                            <div class="profit_input_div">
+                                                <label for="availableFundInterest">percentage:</label>
+                                                <input type="number" placeholder="Enter Here" id="availableFundInterest" name="availableFund">
+                                            </div>
+                                        </div>
+                                        <div class="loan_button">
+                                            <button type="button">Calculate</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="profit_table">
+                                        <h4>Profit Affect On Eligible Employee</h4>
+                                        <div class="profit_table_div">
+                                            <table>
+                                                <tr>
+                                                  <th>Employee ID</th>
+                                                  <th>Employee Name</th>
+                                                  <th>Profit Amount</th>
+                                                  <th>Net Profit</th>
+                                                </tr>
+                                                <tr>
+                                                  <td></td>
+                                                  <td></td>
+                                                  <td></td>
+                                                  <td></td>
+                                                </tr>
+                                                <tr>
+                                                  <td></td>
+                                                  <td></td>
+                                                  <td></td>
+                                                  <td></td>
+                                                </tr>
+                                                <tr>
+                                                  <td></td>
+                                                  <td></td>
+                                                  <td></td>
+                                                  <td></td>
+                                                </tr>
+                                                
+                                              </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                        <div class="act_profit">
+                                            <div class="act_profit_child">
+                                                <div class="profit_input_div">
+                                                    <label for="">Actual Profit:</label>
+                                                    <input type="number" placeholder="Enter Here" id="" name="">
+                                                </div>
+                                                <div class="profit_input_div">
+                                                    <label for="">Round Profit:</label>
+                                                    <input type="number" placeholder="Enter Here" id="" name="">
+                                                </div>
+                                            </div>
+                                        <div class="loan_button">
+                                            <button type="button">Print</button>
+                                            <button type="submit">Finalize</button>
+                                            <button type="button">Change</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade text-left text-light" id="field4" role="tabpanel" aria-labelledby="field4-tab">
+                        <div class="edit_top">
+                            <h3>Edit Record</h3>
+                            <button type="button">Exit</button>
+                        </div>
+                        <div class="row">
+                            <div class="edit_inner_tabs">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link active" id="personal_information-tab" data-bs-toggle="tab" data-bs-target="#personal_information" type="button" role="tab" aria-controls="personal_information" aria-selected="true">personal information</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="Provident_fund_data-tab" data-bs-toggle="tab" data-bs-target="#Provident_fund_data" type="button" role="tab" aria-controls="Provident_fund_data" aria-selected="false">Provident fund data</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="Loan_entries-tab" data-bs-toggle="tab" data-bs-target="#Loan_entries" type="button" role="tab" aria-controls="Loan_entries" aria-selected="false">Loan entries</button>
+                                </li>
+                              </ul>
+                              <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="personal_information" role="tabpanel" aria-labelledby="personal_information-tab">
+                                    <h4 class="date-range code-font">Loan Addition</h4>
+                                <div class="col-md-12">
+                                    <form action="/save-loan" method="POST">
+                                        <div class="form_main">
+                                            <div class="form_input_button">
+                                                <label for="">Employee ID:</label>
+                                                <div class="emp_id">
+                                                    <input class="emp_size_first" placeholder="Enter Here" type="text" id="" name="employeeID" >
+                                                    <input class="emp_size_second" placeholder="Enter Here"  type="text" id="" name="">
+                                                </div>
+
+                                                <div class="edit_inner_tabs_input">
+                                                    <div class="edit_input_label">
+                                                        <label for="">Departent:</label>
+                                                        <input type="text" placeholder="Enter Here" id="" name="">
+                                                    </div>
+                                                    <div class="edit_input_label">
+                                                        <label for="loanAmount">Grade:</label>
+                                                        <input type="text" placeholder="Enter Here" id="" name="">
+                                                    </div>
+                                                </div>
+                                                <div class="edit_inner_tabs_input">
+                                                    <div class="edit_input_label">
+                                                        <label for="">Designation:</label>
+                                                        <input type="text" placeholder="Enter Here" id="" name="">
+                                                    </div>
+                                                    <div class="edit_input_label">
+                                                        <label for="">App Date:</label>
+                                                        <input type="date" placeholder="Enter Here" id="" name="" >
+                                                    </div>
+                                                </div>
+                                                <div class="edit_inner_tabs_input">
+                                                    <div class="edit_input_label">
+                                                    <label for="">NIC No</label>
+                                                    <input type="number" placeholder="Enter Here" id="" name="" >
+                                                    </div>
+                                                    <div class="edit_input_label">
+                                                    <label for="cars">Status</label>
+                                                    <select name="cars" id="cars" form="carform">
+                                                    <option value="volvo">Working</option>
+                                                    <option value="saab">Free</option>
+                                                    <option value="opel">leave</option>
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                                <div class="edit_inner_tabs_input">
+                                                    <label for="Calculate Profit">Calculate Profit Y/N</label>
+                                                    <input type="checkbox" id="" name="" value="profit">
+                                                </div>
+                        
+                                                <div class="loan_button">
+                                                    <button type="button">view</button>
+                                                    <button type="submit">Save</button>
+                                                </div>
+                                            </div>                                       
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
+                                <div class="tab-pane fade" id="Provident_fund_data" role="tabpanel" aria-labelledby="Provident_fund_data-tab">
+                                    <h4 class="date-range code-font">Loan Recovery</h4>
+                                <div class="col-md-12">
+                                    <form action="/recover-loan" method="POST">
+                                        <div class="form_main">
+                                            <div class="form_input_button">
+                                                <label for="">Employee ID:</label>
+                                                <div class="emp_id">
+                                                    <input class="emp_size_first" placeholder="Enter Here" type="text" id="" name="" >
+                                                    <input class="emp_size_second" placeholder="Enter Here" type="text" id="" name="">
+                                                </div>
+                        
+                                                <label for="">University Contribution:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="" >
+                        
+                                                <label for="">Employee Contribution:</label>
+                                                <input type="date" placeholder="Enter Here" id="" name="" >
+                        
+                                                <label for="">Select PF Date</label>
+                                                <input type="date" placeholder="Enter Here" id="" name="">
+                        
+                                                <div class="loan_button">
+                                                    <button type="button">View</button>
+                                                    <button type="submit">New</button>
+                                                    <button type="button">update</button>
+                                                </div>
+                                            </div>                                       
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
+                                <div class="tab-pane fade" id="Loan_entries" role="tabpanel" aria-labelledby="Loan_entries-tab">
+                                <h4 class="date-range code-font">Interest</h4>
+                                <div class="col-md-12">
+                                    <form action="/save-interest" method="POST">
+                                        <div class="form_main">
+                                            <div class="form_input_button">
+                                                <label for="">Employee ID:</label>
+                                                <div class="emp_id">
+                                                    <input class="emp_size_first" placeholder="Enter Here" type="text" id="" name="" >
+                                                    <input class="emp_size_second" placeholder="Enter Here" type="text" id="" name="">
+                                                </div>
+                        
+                                                <label for="">Loan Amount:</label>
+                                                <input type="number" placeholder="Enter Here" id="" name="">
+                        
+                                                <label for="">Select Date:</label>
+                                                <input type="date" placeholder="Enter Here" id="" name="">
+                        
+                                                <div class="loan_button">
+                                                    <button type="button">View</button>
+                                                    <button type="submit">New</button>
+                                                    <button type="button">Update</button>
+                                                </div>
+                                            </div>                                       
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
+                              </div> 
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade text-left text-light" id="field5" role="tabpanel" aria-labelledby="field5-tab">
+                        <div class="loan_addition">
+                            <button type="button">New Search</button>
+                            <button type="button">Exit</button>
+                        </div>
+                        <div class="row">
+                            <div class="loan_inner_tabs">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="Employee_Provident_Fund_Ledger-tab" data-bs-toggle="tab" data-bs-target="#Employee_Provident_Fund_Ledger" type="button" role="tab" aria-controls="Employee_Provident_Fund_Ledger" aria-selected="true">Employee Provident Fund Ledger</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="Loan_Summary-tab" data-bs-toggle="tab" data-bs-target="#Loan_Summary" type="button" role="tab" aria-controls="Loan_Summary" aria-selected="false">Loan Summary</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="Profit_Report-tab" data-bs-toggle="tab" data-bs-target="#Profit_Report" type="button" role="tab" aria-controls="Profit_Report" aria-selected="false">Profit Report</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="Annual_Provident_Fund_Ledger-tab" data-bs-toggle="tab" data-bs-target="#Annual_Provident_Fund_Ledger" type="button" role="tab" aria-controls="Annual_Provident_Fund_Ledger" aria-selected="false">Annual Provident Fund Ledger</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="Refund_Employee_Report-tab" data-bs-toggle="tab" data-bs-target="#Refund_Employee_Report" type="button" role="tab" aria-controls="Refund_Employee_Report" aria-selected="false">Refund Employee Report</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="Interest_Report-tab" data-bs-toggle="tab" data-bs-target="#Interest_Report" type="button" role="tab" aria-controls="Interest_Report" aria-selected="false">Interest Report</button>
+                                    </li>
+                                </ul>
+
+
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="Employee_Provident_Fund_Ledger" role="tabpanel" aria-labelledby="Employee_Provident_Fund_Ledger-tab">
+                                        <div class="col-md-12">
+                                            <div class="from_to_date">
+                                                <label for="">Employee Id:</label>
+                                                <div class="emp_id">
+                                                    <input class="emp_size_first" placeholder="Enter Here" type="text" id="" name="employeeID" >
+                                                    <input class="emp_size_second" placeholder="Enter Here"  type="text" id="" name="">
+                                                </div>
+                                                <div class="from_to_date_input">
+                                                    <label for="">From Date:</label>
+                                                    <input type="date" placeholder="Enter Here" id="" name="">
+                                                </div>
+                                                 <div class="from_to_date_input">
+                                                    <label for="">From Date:</label>
+                                                    <input type="date" placeholder="Enter Here" id="" name="" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="fund_summary">
+                                                <h4>Provident Fund Ledger Summary</h4>
+                                                <div class="print">
+                                                    <h5>Opening Balance</h5>
+                                                    <button type="button">Print</button>
+                                                </div>
+                                                
+                                                <div class="fund_summary_input">
+                                                    <div class="fund_summary_input_div">
+                                                        <label for="">Loan Balance:</label>
+                                                        <input type="number" placeholder="Enter Here" id="" name="" >
+                                                    </div>
+                                                    <div class="fund_summary_input_div">
+                                                        <label for="">Employee Sum:</label>
+                                                        <input type="number" placeholder="Enter Here" id="" name="" >
+                                                    </div>
+                                                    <div class="fund_summary_input_div">
+                                                        <label for="">University Sum:</label>
+                                                        <input type="number" placeholder="Enter Here" id="" name="" >
+                                                    </div>
+                                                    <div class="fund_summary_input_div">
+                                                        <label for="">Profit Sum:</label>
+                                                        <input type="number" placeholder="Enter Here" id="" name="" >
+                                                    </div>
+                                                    <div class="fund_summary_input_div">
+                                                        <label for="">Net Balance:</label>
+                                                        <input type="number" placeholder="Enter Here" id="" name="" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="view_page_tables">
+                                                    <div class="view_page_tables_one">
+                                                        <div class="profit_table_div">
+                                                            <table>
+                                                                <tr>
+                                                                <th>Date</th>
+                                                                <th>PF Employee</th>
+                                                                <th>PF University</th>
+                                                                </tr>
+                                                                <tr>
+                                                                <td>03-12-24</td>
+                                                                <td>6000</td>
+                                                                <td>8000</td>
+                                                                </tr>
+                                                                <tr>
+                                                                <td>03-12-24</td>
+                                                                <td>6000</td>
+                                                                <td>8000</td>
+                                                                </tr>
+                                                                <tr>
+                                                                <td>03-12-24</td>
+                                                                <td>6000</td>
+                                                                <td>8000</td>
+                                                                </tr>            
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="view_page_tables_two">
+                                                        <div class="profit_table_div">
+                                                            <table>
+                                                                <tr>
+                                                                <th>PR Date</th>
+                                                                <th>PR Amt</th>
+                                                                </tr>
+                                                                <tr>
+                                                                <td>03-12-24</td>
+                                                                <td>6000</td>
+                                                                </tr>
+                                                                <tr>
+                                                                <td>03-12-24</td>
+                                                                <td>6000</td>
+                                                                </tr>
+                                                                <tr>
+                                                                <td>03-12-24</td>
+                                                                <td>6000</td>
+                                                                </tr>
+                                                            
+                                                                
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="view_page_tables_one_total">
+                                                    <div class="fund_summary_input_div">
+                                                        <label for="loanAmount">PF Employee:</label>
+                                                        <input type="number" placeholder="" id="" name="PF_Employee" >
+                                                    </div>
+                                                    <div class="fund_summary_input_div">
+                                                        <label for="loanAmount">PF University:</label>
+                                                        <input type="number" placeholder="" id="" name="PF University">
+                                                    </div>
+                                                    <div class="fund_summary_input_div">
+                                                        <label for="loanAmount">PR Amount:</label>
+                                                        <input type="number" placeholder="" id="" name="PR Amount">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="view_cat">
+                                                    <div class="view_category">
+                                                        <div>
+                                                            <label for="">Category:</label>
+                                                            <select name="category" id="">
+                                                            <option value="all">all</option>
+                                                            <option value="sum">sum</option>
+                                                            </select>
+                                                        </div>
+                                                        <div>
+                                                            <button type="button">view</button>
+                                                        </div>
+                                                            
+                                                    </div>
+                                                    <h4>Total</h4>
+                                                    <div class="total_balance">
+                                                        <div class="total_balance_input">
+                                                            <label for="loanAmount">Employee Sum:</label>
+                                                            <input type="number" placeholder="Enter Here" id="" name="Employee_Sum">
+                                                        </div>
+                                                        <div class="total_balance_input">
+                                                            <label for="loanAmount">SSUET Sum:</label>
+                                                            <input type="number" placeholder="Enter Here" id="" name="ssuet_sum" >
+                                                        </div>
+                                                        <div class="total_balance_input">
+                                                            <label for="loanAmount">Profit  Sum:</label>
+                                                            <input type="number" placeholder="Enter Here" id="" name="profit_sum" >
+                                                        </div>
+                                                        <div class="total_balance_input">
+                                                            <label for="loanAmount">Loan</label>
+                                                            <input type="number" placeholder="Enter Here" id="" name="Loan" >
+                                                        </div>
+                                                        <div class="total_balance_input">
+                                                            <label for="loanAmount">Refund:</label>
+                                                            <input type="number" placeholder="Enter Here" id="" name="Refund" >
+                                                        </div>
+                                                    </div>
+                                                    <h4>Gross</h4>
+                                                    <div class="total_balance">
+                                                        <div class="total_balance_input">
+                                                            <label for="">Loan Balance:</label>
+                                                            <input type="number" placeholder="Enter Here" id="" name="loan_balance" >
+                                                        </div>
+                                                    </div>
+                                                    <h4>Net</h4>
+                                                    <div class="total_balance">
+                                                        <div class="total_balance_input">
+                                                            <label for="">Net Balance:</label>
+                                                            <input type="number" placeholder="Enter Here" id="" name="Net_balance" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="Loan_Summary" role="tabpanel" aria-labelledby="Loan_Summary-tab">
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="Profit_Report" role="tabpanel" aria-labelledby="Profit_Report-tab">
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="Annual_Provident_Fund_Ledger" role="tabpanel" aria-labelledby="Annual_Provident_Fund_Ledger-tab">
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="Refund_Employee_Report" role="tabpanel" aria-labelledby="Refund_Employee_Report-tab">
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="Interest_Report" role="tabpanel" aria-labelledby="Interest_Report-tab">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+
+                    <div class="tab-pane fade text-left text-light" id="field6" role="tabpanel" aria-labelledby="field6-tab">
+                        <div class="loan_addition">
+                            <button type="button">Exit</button>
+                        </div>
+                        <h3 class="date-range code-font">Interest</h3>
+                        <div class="col-md-12">
+                            <form action="/save-interest" method="POST">
+                                <div class="form_main">
+                                    <div class="form_input_button">
+                                        <!-- Employee ID Fields -->
+                                        <label for="employeeIDInterest">Employee ID:</label>
+                                        <div class="emp_id">
+                                            <input 
+                                                class="emp_size_first" 
+                                                placeholder="Enter Here" 
+                                                type="text" 
+                                                id="" 
+                                                name="" 
+                                                >
+                                            <input 
+                                                class="emp_size_second" 
+                                                placeholder="Enter Here" 
+                                                type="text" 
+                                                id="" 
+                                                name="">
+                                        </div>
+                    
+                                        <!-- Refund Amount Field -->
+                                        <label for="loanAmountInterest">Refund Amount:</label>
+                                        <input 
+                                            type="number" 
+                                            placeholder="Enter Here" 
+                                            id="" 
+                                            name="" 
+                                            >
+                    
+                                        <!-- Date Selection Field -->
+                                        <label for="interestDate">Select Date:</label>
+                                        <input 
+                                            type="date" 
+                                            placeholder="Enter Here" 
+                                            id="" 
+                                            name="">
+                    
+                                        <!-- Action Buttons -->
+                                        <div class="loan_button">
+                                            <button type="button">Refund</button>
+                                            <button type="submit">Restore</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+
+                    <div class="tab-pane fade text-left text-light" id="field7" role="tabpanel" aria-labelledby="field7-tab">
+                        <h2>No Data</h2>
+                    </div>
+
+                    <div class="tab-pane fade text-left text-light" id="field8" role="tabpanel" aria-labelledby="field8-tab">
+                        <h2>No Data</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        const toggleButton = document.getElementById('toggleTabs');
+        const tabsContainer = document.getElementById('tabsContainer');
+        const contentColumn = document.getElementById('contentColumn');
+
+        toggleButton.addEventListener('click', () => {
+            tabsContainer.classList.toggle('hide');
+            contentColumn.classList.toggle('full-width');
+        });
+
+        // File selection
+        document.getElementById('personalFileInput').addEventListener('change', function() {
+            document.getElementById('personalFileName').value = this.files[0].name;
+        });
+
+        document.getElementById('providentFileInput').addEventListener('change', function() {
+            document.getElementById('providentFileName').value = this.files[0].name;
+        });
+
+        //File Upload
+        document.getElementById('updateButton').addEventListener('click', function() {
+            const personalFile = document.getElementById('personalFileInput').files[0];
+            const providentFile = document.getElementById('providentFileInput').files[0];
+
+            if (!personalFile && !providentFile) {
+                alert("Please select at least one file before updating.");
+                return;
+            }
+
+            if (personalFile && !providentFile) {
+                if (!confirm("You are only uploading the Employee Personal File. Do you want to proceed?")) {
+                    return;
+                }
+            }
+
+            if (!personalFile && providentFile) {
+                if (!confirm("You are only uploading the Employee Provident File. Do you want to proceed?")) {
+                    return;
+                }
+            }
+
+            const formData = new FormData();
+            if (personalFile) formData.append('personalFile', personalFile);
+            if (providentFile) formData.append('providentFile', providentFile);
+
+            fetch('/upload-files', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Files uploaded and data inserted successfully!");
+                } else {
+                    alert("Error: " + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("An error occurred while uploading the files.");
+            });
+        });
+    </script>
+</body>
+</html>

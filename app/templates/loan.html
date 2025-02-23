@@ -1,0 +1,437 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Main Content -->
+<div class="main-content">
+    <section>
+        <div class="container">
+            <div class="provident_heading">
+                <h1>Provident Fund System</h1>
+            </div>
+            <div class="row">
+                <div class="loan_inner_tabs">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="Loan_Addition-tab" data-bs-toggle="tab" data-bs-target="#Loan_Addition" type="button" role="tab" aria-controls="Loan_Addition" aria-selected="true">Loan Addition</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="Loan_Recovery-tab" data-bs-toggle="tab" data-bs-target="#Loan_Recovery" type="button" role="tab" aria-controls="Loan_Recovery" aria-selected="false">Loan Recovery</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="Interest-tab" data-bs-toggle="tab" data-bs-target="#Interest" type="button" role="tab" aria-controls="Interest" aria-selected="false">Interest</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="Loan_Addition" role="tabpanel" aria-labelledby="Loan_Addition-tab">
+                            <h4 class="date-range code-font">Loan Addition</h4>
+                            <div class="col-md-12">
+                                <form id="loanForm">
+                                    <div class="form_main">
+                                        <div class="form_input_button">
+                                            <div class="emp_id">
+                                                <div class="emoplyee_id">
+                                                    <label for="employeeIDInterest">Employee ID:</label>
+                                                    <input class="emp_size_first" placeholder="Enter Here" type="text" id="employeeId" name="employeeId">
+                                                </div>
+                                                <div class="emoplyee_id">
+                                                    <label for="employeeIDInterest">Employee Name:</label>
+                                                    <input class="emp_size_second" placeholder="Enter Here" type="text" id="employeeName" name="employeeName" readonly>
+                                                </div>
+                                            </div>
+                        
+                                            <label for="">Loan Amount:</label>
+                                            <input type="number" placeholder="Enter Here" id="loanAmount" name="loanAmount" required>
+                        
+                                            <label for="">Select Date:</label>
+                                            <input type="date" placeholder="Enter Here" id="selectDate" name="selectDate" required>
+                        
+                                            <label for="">Available Fund:</label>
+                                            <input type="number" placeholder="Enter Here" id="availableFunds" name="availableFunds" readonly>
+                        
+                                            <div class="loan_button" id="loan_addition">
+                                                <button type="submit" id="saveButton" disabled>Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Warning message -->
+                            <div id="warningMessage" style="color: red; display: none;"></div>
+                        </div>
+                        <div class="tab-pane fade" id="Loan_Recovery" role="tabpanel" aria-labelledby="Loan_Recovery-tab">
+                            <h4 class="date-range code-font">Loan Recovery</h4>
+                            <div class="col-md-12">
+                                <form id="loanRecoveryForm">
+                                    <div class="form_main">
+                                        <div class="form_input_button">
+                                            <div class="emp_id">
+                                                <div class="emoplyee_id">
+                                                    <label for="employeeIDRecovery">Employee ID:</label>
+                                                    <input class="emp_size_first" placeholder="Enter Here" type="text" id="employeeIdRecovery" name="employeeId">
+                                                </div>
+                                                <div class="emoplyee_id">
+                                                    <label for="employeeIDRecovery">Employee Name:</label>
+                                                    <input class="emp_size_second" placeholder="Enter Here" type="text" id="employeeNameRecovery" name="employeeName" readonly>
+                                                </div>
+                                            </div>
+                        
+                                            <label for="">Recovery Amount:</label>
+                                            <input type="number" placeholder="Enter Here" id="recoveryAmount" name="recoveryAmount" required>
+                        
+                                            <label for="">Select Date:</label>
+                                            <input type="date" placeholder="Enter Here" id="selectDateRecovery" name="selectDate" required>
+                        
+                                            <label for="">Available Fund:</label>
+                                            <input type="number" placeholder="Enter Here" id="availableFundsRecovery" name="availableFunds" readonly>
+                        
+                                            <div class="loan_button" id="loan_recovery">
+                                                <button type="submit" id="saveButtonRecovery" disabled>Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Warning message -->
+                            <div id="warningMessageRecovery" style="color: red; display: none;"></div>
+                        </div>
+                        <div class="tab-pane fade" id="Interest" role="tabpanel" aria-labelledby="Interest-tab">
+                            <h4 class="date-range code-font">Interest</h4>
+                            <div class="col-md-12">
+                                <form id="interestForm">
+                                    <div class="form_main">
+                                        <div class="form_input_button">
+                                            <div class="emp_id">
+                                                <div class="emoplyee_id">
+                                                    <label for="employeeIDInterest">Employee ID:</label>
+                                                    <input class="emp_size_first" placeholder="Enter Here" type="text" id="employeeIdInterest" name="employeeId">
+                                                </div>
+                                                <div class="emoplyee_id">
+                                                    <label for="employeeIDInterest">Employee Name:</label>
+                                                    <input class="emp_size_second" placeholder="Enter Here" type="text" id="employeeNameInterest" name="employeeName" readonly>
+                                                </div>
+                                            </div>
+                        
+                                            <label for="">Interest Rate (%):</label>
+                                            <input type="number" step="0.01" placeholder="Enter Here" id="interestRate" name="interestRate" required>
+                        
+                                            <label for="">Select Date:</label>
+                                            <input type="date" placeholder="Enter Here" id="selectDateInterest" name="selectDate" required>
+                        
+                                            <label for="">Available Fund:</label>
+                                            <input type="number" placeholder="Enter Here" id="availableFundsInterest" name="availableFunds" readonly>
+                        
+                                            <div class="loan_button" id="interest">
+                                                <button type="submit" id="saveButtonInterest" disabled>Save</button>
+                                            </div>
+                        
+                                            <!-- Warning message -->
+                                            <div id="warningMessageInterest" style="color: red; display: none;"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(document).on("click", "#toggleTabs", function() {
+                $("#sidebar").toggleClass("collapsed");
+            });
+        });
+
+        //Fetching Loan Addition details
+        $(document).ready(function() {
+            // Set current date in the Select Date field in "YYYY-MM-DD" format
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+            const day = String(today.getDate()).padStart(2, '0');
+            const formattedDate = `${year}-${month}-${day}`;
+            $('#selectDate').val(formattedDate);
+
+            // Fetch employee details when Employee ID field changes
+            $('#employeeId').on('input', function() {
+                const employeeId = $(this).val();
+
+                if (employeeId) {
+                    $.get('/get-employee-details', { employee_id: employeeId }, function(data) {
+                        if (data.success) {
+                            $('#employeeName').val(data.employee_name);
+                            $('#availableFunds').val(data.available_funds);
+                            $('#saveButton').prop('disabled', false); // Enable Save button
+                            $('#warningMessage').hide(); // Hide warning message
+                        } else {
+                            // Reset all fields except Employee ID
+                            $('#employeeName').val('');
+                            $('#loanAmount').val('');
+                            $('#selectDate').val(formattedDate); // Reset to current date
+                            $('#availableFunds').val('');
+                            $('#saveButton').prop('disabled', true); // Disable Save button
+                            $('#warningMessage').text("Employee ID not found in the database.").show(); // Show warning message
+                        }
+                    }).fail(function() {
+                        // Reset all fields except Employee ID
+                        $('#employeeName').val('');
+                        $('#loanAmount').val('');
+                        $('#selectDate').val(formattedDate); // Reset to current date
+                        $('#availableFunds').val('');
+                        $('#saveButton').prop('disabled', true); // Disable Save button
+                        $('#warningMessage').text("Employee ID not found in the database.").show(); // Show error message
+                    });
+                } else {
+                    // Reset all fields except Employee ID
+                    $('#employeeName').val('');
+                    $('#loanAmount').val('');
+                    $('#selectDate').val(formattedDate); // Reset to current date
+                    $('#availableFunds').val('');
+                    $('#saveButton').prop('disabled', true); // Disable Save button
+                    $('#warningMessage').hide(); // Hide warning message
+                }
+            });
+
+            // Handle form submission
+            $('#loanForm').on('submit', function(event) {
+                event.preventDefault();
+
+                const employeeId = $('#employeeId').val();
+                const loanAmount = $('#loanAmount').val();
+                const selectDate = $('#selectDate').val();
+                const availableFunds = $('#availableFunds').val();
+
+                if (!employeeId || !loanAmount || !selectDate || !availableFunds) {
+                    alert("All fields are required.");
+                    return;
+                }
+
+                $.ajax({
+                    url: '/save-loan-addition',
+                    method: 'POST',
+                    data: {
+                        employeeId: employeeId,
+                        loanAmount: loanAmount,
+                        selectDate: selectDate,
+                        availableFunds: availableFunds
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            alert("Loan record saved and AvailableFunds updated successfully!");
+
+                            // Reset all fields to default values
+                            $('#employeeId').val('');
+                            $('#employeeName').val('');
+                            $('#loanAmount').val('');
+                            $('#selectDate').val(formattedDate); // Reset to current date
+                            $('#availableFunds').val('');
+                            $('#saveButton').prop('disabled', true); // Disable Save button
+                            $('#warningMessage').hide(); // Hide warning message
+                        } else {
+                            alert("Error: " + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert("An error occurred while saving the loan record.");
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function() {
+            // Set current date in the Select Date field in "YYYY-MM-DD" format
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+            const day = String(today.getDate()).padStart(2, '0');
+            const formattedDate = `${year}-${month}-${day}`;
+            $('#selectDateRecovery').val(formattedDate);
+
+            // Fetch employee details when Employee ID field changes
+            $('#employeeIdRecovery').on('input', function() {
+                const employeeId = $(this).val();
+
+                if (employeeId) {
+                    $.get('/get-employee-details', { employee_id: employeeId }, function(data) {
+                        if (data.success) {
+                            $('#employeeNameRecovery').val(data.employee_name);
+                            $('#availableFundsRecovery').val(data.available_funds);
+                            $('#saveButtonRecovery').prop('disabled', false); // Enable Save button
+                            $('#warningMessageRecovery').hide(); // Hide warning message
+                        } else {
+                            // Reset all fields except Employee ID
+                            $('#employeeNameRecovery').val('');
+                            $('#recoveryAmount').val('');
+                            $('#selectDateRecovery').val(formattedDate); // Reset to current date
+                            $('#availableFundsRecovery').val('');
+                            $('#saveButtonRecovery').prop('disabled', true); // Disable Save button
+                            $('#warningMessageRecovery').text("Employee ID not found in the database.").show(); // Show warning message
+                        }
+                    }).fail(function() {
+                        // Reset all fields except Employee ID
+                        $('#employeeNameRecovery').val('');
+                        $('#recoveryAmount').val('');
+                        $('#selectDateRecovery').val(formattedDate); // Reset to current date
+                        $('#availableFundsRecovery').val('');
+                        $('#saveButtonRecovery').prop('disabled', true); // Disable Save button
+                        $('#warningMessageRecovery').text("An error occurred while fetching employee details.").show(); // Show error message
+                    });
+                } else {
+                    // Reset all fields except Employee ID
+                    $('#employeeNameRecovery').val('');
+                    $('#recoveryAmount').val('');
+                    $('#selectDateRecovery').val(formattedDate); // Reset to current date
+                    $('#availableFundsRecovery').val('');
+                    $('#saveButtonRecovery').prop('disabled', true); // Disable Save button
+                    $('#warningMessageRecovery').hide(); // Hide warning message
+                }
+            });
+
+            // Handle form submission
+            $('#loanRecoveryForm').on('submit', function(event) {
+                event.preventDefault();
+
+                const employeeId = $('#employeeIdRecovery').val();
+                const recoveryAmount = $('#recoveryAmount').val();
+                const selectDate = $('#selectDateRecovery').val();
+                const availableFunds = $('#availableFundsRecovery').val();
+
+                if (!employeeId || !recoveryAmount || !selectDate || !availableFunds) {
+                    alert("All fields are required.");
+                    return;
+                }
+
+                $.ajax({
+                    url: '/save-loan-recovery',
+                    method: 'POST',
+                    data: {
+                        employeeId: employeeId,
+                        recoveryAmount: recoveryAmount,
+                        selectDate: selectDate,
+                        availableFunds: availableFunds
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            alert("Loan recovery record saved and AvailableFunds updated successfully!");
+
+                            // Reset all fields to default values
+                            $('#employeeIdRecovery').val('');
+                            $('#employeeNameRecovery').val('');
+                            $('#recoveryAmount').val('');
+                            $('#selectDateRecovery').val(formattedDate); // Reset to current date
+                            $('#availableFundsRecovery').val('');
+                            $('#saveButtonRecovery').prop('disabled', true); // Disable Save button
+                            $('#warningMessageRecovery').hide(); // Hide warning message
+                        } else {
+                            alert("Error: " + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert("An error occurred while saving the loan recovery record.");
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function() {
+            // Set current date in the Select Date field in "YYYY-MM-DD" format
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+            const day = String(today.getDate()).padStart(2, '0');
+            const formattedDate = `${year}-${month}-${day}`;
+            $('#selectDateInterest').val(formattedDate);
+
+            // Fetch employee details when Employee ID field changes
+            $('#employeeIdInterest').on('input', function() {
+                const employeeId = $(this).val();
+
+                if (employeeId) {
+                    $.get('/get-employee-details', { employee_id: employeeId }, function(data) {
+                        if (data.success) {
+                            $('#employeeNameInterest').val(data.employee_name);
+                            $('#availableFundsInterest').val(data.available_funds);
+                            $('#saveButtonInterest').prop('disabled', false); // Enable Save button
+                            $('#warningMessageInterest').hide(); // Hide warning message
+                        } else {
+                            // Reset all fields except Employee ID
+                            $('#employeeNameInterest').val('');
+                            $('#interestRate').val('');
+                            $('#selectDateInterest').val(formattedDate); // Reset to current date
+                            $('#availableFundsInterest').val('');
+                            $('#saveButtonInterest').prop('disabled', true); // Disable Save button
+                            $('#warningMessageInterest').text("Employee ID not found in the database.").show(); // Show warning message
+                        }
+                    }).fail(function() {
+                        // Reset all fields except Employee ID
+                        $('#employeeNameInterest').val('');
+                        $('#interestRate').val('');
+                        $('#selectDateInterest').val(formattedDate); // Reset to current date
+                        $('#availableFundsInterest').val('');
+                        $('#saveButtonInterest').prop('disabled', true); // Disable Save button
+                        $('#warningMessageInterest').text("An error occurred while fetching employee details.").show(); // Show error message
+                    });
+                } else {
+                    // Reset all fields except Employee ID
+                    $('#employeeNameInterest').val('');
+                    $('#interestRate').val('');
+                    $('#selectDateInterest').val(formattedDate); // Reset to current date
+                    $('#availableFundsInterest').val('');
+                    $('#saveButtonInterest').prop('disabled', true); // Disable Save button
+                    $('#warningMessageInterest').hide(); // Hide warning message
+                }
+            });
+
+            // Handle form submission
+            $('#interestForm').on('submit', function(event) {
+                event.preventDefault();
+
+                const employeeId = $('#employeeIdInterest').val();
+                const interestRate = $('#interestRate').val();
+                const selectDate = $('#selectDateInterest').val();
+                const availableFunds = $('#availableFundsInterest').val();
+
+                if (!employeeId || !interestRate || !selectDate || !availableFunds) {
+                    alert("All fields are required.");
+                    return;
+                }
+
+                $.ajax({
+                    url: '/save-interest-addition',  // Updated route name
+                    method: 'POST',
+                    data: {
+                        employeeId: employeeId,
+                        interestRate: interestRate,
+                        selectDate: selectDate,
+                        availableFunds: availableFunds
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            alert("Interest record saved and AvailableFunds updated successfully!");
+
+                            // Reset all fields to default values
+                            $('#employeeIdInterest').val('');
+                            $('#employeeNameInterest').val('');
+                            $('#interestRate').val('');
+                            $('#selectDateInterest').val(formattedDate); // Reset to current date
+                            $('#availableFundsInterest').val('');
+                            $('#saveButtonInterest').prop('disabled', true); // Disable Save button
+                            $('#warningMessageInterest').hide(); // Hide warning message
+                        } else {
+                            alert("Error: " + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert("An error occurred while saving the interest record.");
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

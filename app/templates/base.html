@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Provident Fund System</title>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="button_sidebar" id="sidebar">
+        <button id="toggleTabs" class="btn btn-warning mb-3"><i class="fa-solid fa-bars"></i></button>
+        <div id="tabsContainer" class="d-flex flex-column">
+            <ul class="nav nav-pills flex-column" id="experienceTab" role="tablist">
+                <li class="nav-item">
+                    <a class="d-flex nav-link active" href="{{ url_for('update_record') }}">
+                        <div class="side_button_icon"><i class="fa-solid fa-file-waveform"></i></div>
+                        <div><h6 class="mt-2">Update Records</h6></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex nav-link" href="{{ url_for('loan') }}">
+                        <div class="side_button_icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                        <div><h6 class="mt-2">Loan</h6></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex nav-link" href="{{ url_for('profit') }}">
+                        <div class="side_button_icon"><i class="fa-solid fa-arrow-up-right-dots"></i></div>
+                        <div><h6 class="mt-2">Profit</h6></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex nav-link" href="{{ url_for('edit') }}">
+                        <div class="side_button_icon"><i class="fa-solid fa-pen-to-square"></i></div>
+                        <div><h6 class="mt-2">Edit</h6></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex nav-link" href="{{ url_for('view') }}">
+                        <div class="side_button_icon"><i class="fa-solid fa-eye"></i></div>
+                        <div><h6 class="mt-2">View</h6></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex nav-link" href="{{ url_for('refund') }}">
+                        <div class="side_button_icon"><i class="fa-solid fa-reply"></i></div>
+                        <div><h6 class="mt-2">Refund</h6></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex nav-link" href="{{ url_for('payslip') }}">
+                        <div class="side_button_icon"><i class="fa-solid fa-scroll"></i></div>
+                        <div><h6 class="mt-2">Pay Slip</h6></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex nav-link" href="{{ url_for('userAccount') }}">
+                        <div class="side_button_icon"><i class="fa-solid fa-person"></i></div>
+                        <div><h6 class="mt-2">User Accounts</h6></div>
+                    </a>
+                </li>
+            </ul>
+            <div>
+                <a class="logout_button" href="logout.html">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Block -->
+    <div class="flex-grow-1" id="contentColumn">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const toggleButton = document.getElementById('toggleTabs');
+        const tabsContainer = document.getElementById('tabsContainer');
+        const contentColumn = document.getElementById('contentColumn');
+
+        toggleButton.addEventListener('click', () => {
+            tabsContainer.classList.toggle('hide');
+            contentColumn.classList.toggle('full-width');
+        });
+    </script>
+</body>
+</html>

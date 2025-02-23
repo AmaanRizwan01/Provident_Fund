@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Main Content -->
+<div class="main-content">
+    <div class="provident_heading">
+        <h1>Provident Fund System</h1>
+    </div>
+    <h1>Update Records Page</h1>
+    <p>This is the update records page content.</p>
+    <p>You can add more content here. For example:</p>
+    <ul>
+        <li>Forms</li>
+        <li>Tables</li>
+        <li>Images</li>
+        <li>Buttons</li>
+    </ul>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(document).on("click", "#toggleTabs", function() {
+            $("#sidebar").toggleClass("collapsed");
+        });
+    });
+</script>
+{% endblock %}

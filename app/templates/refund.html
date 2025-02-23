@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Main Content -->
+<div class="main-content">
+    <section>
+        <div class="container">
+            <div class="provident_heading">
+                <h1>Provident Fund System</h1>
+            </div>
+            <div class="row">
+                <h3 class="date-range code-font">Interest</h3>
+                    <div class="col-md-12">
+                        <form action="/save-interest" method="POST">
+                            <div class="form_main">
+                                <div class="form_input_button">
+                                    <!-- Employee ID Fields -->
+                                    <label for="employeeIDInterest">Employee ID:</label>
+                                    <div class="emp_id">
+                                        <input 
+                                            class="emp_size_first" 
+                                            placeholder="Enter Here" 
+                                            type="text" 
+                                            id="" 
+                                            name="" 
+                                            >
+                                        <input 
+                                            class="emp_size_second" 
+                                            placeholder="Enter Here" 
+                                            type="text" 
+                                            id="" 
+                                            name="">
+                                    </div>
+                
+                                    <!-- Refund Amount Field -->
+                                    <label for="loanAmountInterest">Refund Amount:</label>
+                                    <input 
+                                        type="number" 
+                                        placeholder="Enter Here" 
+                                        id="" 
+                                        name="" 
+                                        >
+                
+                                    <!-- Date Selection Field -->
+                                    <label for="interestDate">Select Date:</label>
+                                    <input 
+                                        type="date" 
+                                        placeholder="Enter Here" 
+                                        id="" 
+                                        name="">
+                
+                                    <!-- Action Buttons -->
+                                    <div class="loan_button">
+                                        <button type="button">Refund</button>
+                                        <!-- <button type="submit">Restore</button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(document).on("click", "#toggleTabs", function() {
+            $("#sidebar").toggleClass("collapsed");
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Main Content -->
+<div class="main-content">
+    <section>
+        <div class="container">
+            <div class="provident_heading">
+                <h1>Provident Fund System</h1>
+            </div>
+            <div class="profit">
+                <div class="row">
+                    <h4>Profit Calculation</h4>
+                    <div class="col-md-12">
+                        <div class="profit_year">
+                            <div class="profit_input_main_div">
+                                <div class="profit_input_div">
+                                    <label for="availableFundInterest">Profit from:</label>
+                                    <input type="number" min="1900" max="2099" id="availableFundInterest" name="availableFund" />
+                                    <label for="availableFundInterests">Profit to:</label>
+                                    <input type="number" min="1900" max="2099" id="availableFundInterests" name="availableFund" />
+                                </div>
+                                <div class="profit_input_div">
+                                    <label for="availableFundInterestss">percentage:</label>
+                                    <input type="number" placeholder="Enter Here" id="availableFundInterestss" name="availableFund">
+                                </div>
+                            </div>
+                            <div class="loan_button">
+                                <button type="button">Calculate</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profit_table">
+                            <h4>Profit Affect On Eligible Employee</h4>
+                            <div class="profit_table_div">
+                                <table>
+                                    <tr>
+                                        <th>Employee ID</th>
+                                        <th>Employee Name</th>
+                                        <th>Profit Amount</th>
+                                        <th>Net Profit</th>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    
+                                    </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                            <div class="act_profit">
+                                <div class="act_profit_child">
+                                    <div class="profit_input_div">
+                                        <label for="">Actual Profit:</label>
+                                        <input type="number" id="" name="" disabled>
+                                    </div>
+                                    <div class="profit_input_div">
+                                        <label for="">Round Profit:</label>
+                                        <input type="number"  id="" name="" disabled>
+                                    </div>
+                                </div>
+                            <div class="loan_button">
+                                <button type="button">Print</button>
+                                <!-- <button type="submit">Finalize</button> -->
+                                <button type="button">Change</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(document).on("click", "#toggleTabs", function() {
+            $("#sidebar").toggleClass("collapsed");
+        });
+    });
+</script>
+{% endblock %}

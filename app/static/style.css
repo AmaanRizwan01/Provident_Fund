@@ -1,0 +1,234 @@
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../assets/font/Poppins-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../assets/font/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../assets/font/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../assets/font/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../assets/font/Poppins-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+/* Typography Styles */
+h1 {font-family: 'Poppins', sans-serif;font-weight: bold;font-size: 45px;color:white;text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);}
+h2 {font-family: 'Poppins', sans-serif;  font-weight: 600;font-size: 35px;color:white;text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);}
+h3 {font-family: 'Poppins', sans-serif;font-weight: 700;font-size: 25px;color:rgb(0, 0, 0);text-shadow: 3px 3px 8px rgba(255, 255, 255, 0.9);}
+h4 {font-family: 'Poppins', sans-serif;font-weight: 700;font-size: 20px;color:rgb(0, 0, 0);text-shadow: 3px 3px 8px rgba(255, 255, 255, 0.9);}
+p, span{font-family: 'Poppins', sans-serif;font-weight: 700;font-size: 16px;color:white;text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);}
+
+:root {
+    --theme-yellow: #49274A;
+    --theme-black: #F8EEE7;
+    --theme-gray: #94618E;
+    --theme-coolgray: #F4DECB;
+    --theme-white: white;
+} 
+body {
+    background-image: url(./ssuet_body_pic.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    column-gap: 20px;
+    position: relative;
+}
+
+/* Create an overlay with blur effect */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5); /* Dark overlay */
+    z-index: -1;
+}
+.emoplyee_id {width:100%}
+.emoplyee_id input{width:100%}
+.container{background-color: #ffffff66;border-radius: 30px;}
+.sidebar_toggle_btn{background-color:#ffffffcb;border:0;padding:5px 10px;color:#458745;border-radius:7px;margin-bottom: 20px;}
+.provident_heading {background-color:#458745cb;border-radius:40px;padding:0 20px}
+label{color:white}
+.main-content{width:77%;padding-top:30px}
+nav{background-color: var(--theme-yellow);padding: 10px 30px;margin: 25px 15px;clip-path: polygon(2% 0, 100% 0%, 98% 100%, 0 100%)}
+nav h2{margin:0}
+form button, .loan_addition button, .loan_button button, .edit_top button, .print button, .view_category button{border:0;border-radius:20px;padding:5px 30px;color: white;background-color:#9100ab}
+.loan_addition button {margin-right: 10px;}
+form button:hover{background-color: #563a57;}
+button:hover{background-color: #563a57;}
+input{border:0;border-radius:20px;padding:5px 10px;color:var(--theme-yellow);background-color:white}
+#mainLayout {display: flex;align-items: flex-start;transition: all 0.6s ease-in-out;column-gap: 20px;}
+
+/* Tabs Container */
+/* #tabsContainer {width: 170px;transition: width 0.6s ease-in-out, opacity 0.6s ease-in-out;}
+#tabsContainer.hide {width: 0;opacity: 0;overflow: hidden;} */
+
+/* Content Column */
+/* #contentColumn {transition: width 0.6s ease-in-out;}
+#contentColumn.full-width {width: 100%;} */
+
+/* Navigation Pills */
+
+/* nav h2{color: var(--theme-white);}
+#experienceTab .nav-link.active {min-width:185px;color: var(--theme-white) !important;background-color: transparent;border-radius: 0;border-left: 5px solid black;}
+#experienceTab .nav-link {color: var(--theme-white);border-radius: 0;border-left: 4px solid var(--theme-coolgray);display: flex;column-gap: 10px;align-items: center;}
+#experienceTab .nav-link  h6{margin:0}
+#experienceTab .nav-link:hover{background-color: transparent;}
+.button_sidebar .nav-item{height: 40px;}
+.side_button_icon {color: var(--theme-yellow);}
+.date-range {letter-spacing: 0.01em;color: var(--theme-coolgray);}
+#toggleTabs {border-radius: 50%;background: transparent;border: 2px solid var(--theme-yellow);}
+#toggleTabs i {color:var(--theme-yellow);}
+.button_sidebar{background-color: var(--theme-gray);border-radius: 20px;min-height: 600px;}
+.logout_button{border: 0;margin: 10px;padding: 4px 20px;border-radius: 30px;background-color: var(--theme-yellow);font-size: 16px;font-weight: 500;color:var(--theme-white)}
+.logout_button:hover {background-color:#563a57}
+#toggleTabs:hover{border:2px solid #563a57}
+#toggleTabs i:hover{ color:#563a57}
+.tab-content .tab-pane h3, .tab-content .tab-pane h4 {color:var(--theme-yellow)}
+.button_sidebar .nav-pills .nav-item i{font-size:20px} */
+form {border-radius:20px;padding:20px;display:flex;column-gap:20px}
+.form_main{width:100%; display:flex;column-gap:40px}
+.form_input_button{width:100%; display:flex;flex-direction:column;row-gap:10px;background-color:#0000005c;padding:20px;border-radius:20px}
+.browse_button {display:flex;flex-direction:column;row-gap:40px;padding:10px}
+.emp_size_first{width:39%}
+.emp_size_second{width:60%}
+.loan_button{display: flex;column-gap: 20px;justify-content: end;}
+.loan_addition{display: flex;justify-content: end;padding-right: 25px;}
+.loan_inner_tabs li.nav-item button, .edit_inner_tabs li.nav-item button {background-color:#458745;border-radius:30px;margin:10px 10px 0 0 ;color:white}
+.loan_inner_tabs .nav, .edit_inner_tabs .nav  {margin-bottom:10px}
+
+.scrollbar table th{color:var(--theme-yellow) ;border:1px solid black}
+.scrollbar table tr td{height:20px; color:var(--theme-yellow) ;border:1px solid black}
+.profit_year {margin-bottom:10px; background-color: #0000005c;display:flex;padding:10px 20px;justify-content: space-between;border-radius:20px}
+.profit_input_main_div{display: flex;column-gap: 20px;}
+.act_profit {min-height:275px; background-color:#0000005c ;border-radius: 20px;padding: 20px;display: flex;flex-direction: column;justify-content: space-between;}
+.profit_table{background-color: #0000005c ;border-radius: 20px;padding: 20px;}
+.act_profit_child{display:flex;flex-direction:column;row-gap:20px;}
+
+
+/* edit */
+.edit_top{display: flex;justify-content: space-between;align-items: center;}
+.edit_inner_tabs_input{display:flex;column-gap:10px}
+.edit_input_label{display:flex;flex-direction:column;width:50%}
+.edit_inner_tabs_input select, .view_category select{border: 0;border-radius: 20px;padding: 5px 10px;color: var(--theme-yellow);background-color: white}
+
+
+/* scrollbar */
+.profit_table_div {min-height: 200px;width: 100%;overflow-y: scroll; background: #F5F5F5;border: 1px solid #ccc;box-sizing: border-box; }
+.profit_table_div::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);border-radius: 10px;background-color: #F5F5F5;}
+.profit_table_div::-webkit-scrollbar {width: 12px;background-color: #F5F5F5;}
+.profit_table_div::-webkit-scrollbar-thumb {border-radius: 10px;-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);background-color:var(--theme-yellow);}
+
+.profit_table_div table{width:100%}
+.profit_table_div table th{color:black;border:1px solid black}
+.profit_table_div table td{color:black;border:1px solid black; height:20px}
+.profit_table_div{background-color: white;border-radius: 10px;}
+.from_to_date {display:flex; background-color:#0000005c;align-items:center;padding:20px;border-radius:20px;column-gap:10px}
+.emp_id{display:flex;align-items:center;column-gap:5px}
+.fund_summary_input {background-color:#0000005c;padding:20px; border-radius:20px;display:flex;column-gap:5px}
+.fund_summary_input_div input{width:90%}
+.fund_summary h5, .fund_summary h4{margin:0;color:var(--theme-yellow);padding:5px 0}
+.print {display:flex; align-items:center;justify-content:space-between;padding: 5px 20px 10px 0}
+.view_cat {background-color:#0000005c;border-radius:20px;padding:20px;margin-top:20px}
+.view_category{display:flex;justify-content:space-between}
+.total_balance_input{display:flex;justify-content:space-between;align-items: center;}
+.view_cat h4{margin:0;padding-top:10px}
+.total_balance{display:flex;flex-direction:column;row-gap:10px}
+.view_page_tables {background-color:#0000005c;padding: 20px;border-radius: 20px;margin-top: 20px;display: flex;;column-gap:10px}
+.view_page_tables_one{width:60%}
+.view_page_tables_two{width:40%}
+.view_page_tables .profit_table_div {min-height:340px}
+.view_page_tables_one_total {background-color:#0000005c;border-radius:20px;padding:20px;display:flex;margin-top:20px;column-gap:10px}
+
+
+
+
+.button_sidebar {
+            width: 250px;
+            background-color: #9100ab;
+            border-radius: 20px;
+            padding: 10px;
+            border-right: 1px solid #ddd;
+            height: 100vh;
+            transition: width 0.3s ease;
+        }
+
+        .button_sidebar.collapsed {
+            width: 60px; /* Only show icons */
+        }
+
+        .button_sidebar.collapsed .nav-link h6,
+        .button_sidebar.collapsed .logout_button span {
+            display: none; /* Hide text */
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+        .nav-link.active {
+            background-color: rgb(255, 255, 255) !important;
+            color: #458745 !important;
+        }
+
+        .nav-link:hover {
+            background-color: #e9ecef;
+            color: #458745;
+
+        }
+
+        .side_button_icon {
+            margin-right: 10px;
+        }
+
+        .logout_button {
+            width: 100%;
+            padding: 10px;
+            background-color: #458745cb;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logout_button:hover {
+            background-color: #ffffff;
+            color:black
+        }
+
+        .logout_button span {
+            margin-left: 10px;
+        }
